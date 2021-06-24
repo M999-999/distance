@@ -1,0 +1,62 @@
+package com.training.distance.service.impl;
+
+import com.training.distance.domain.City;
+import com.training.distance.domain.Distance;
+import com.training.distance.dto.DistanceDto;
+import com.training.distance.repository.DistanceRepository;
+import com.training.distance.service.DistanceService;
+import com.training.distance.validator.PropertyValidator;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+
+@Service
+@Slf4j
+//@EnableTransactionManagement
+public class DistanceServiceImpl implements DistanceService {
+
+    private DistanceRepository distanceRepository;
+    private PropertyValidator propertyValidator;
+
+    @Autowired
+    public DistanceServiceImpl(
+            DistanceRepository distanceRepository, PropertyValidator propertyValidator) {
+        this.distanceRepository = distanceRepository;
+        this.propertyValidator = propertyValidator;
+    }
+    @Override
+    //@Transactional(readOnly = true)
+    //@Transactional(propagation= Propagation.SUPPORTS)
+    //@Transactional(readOnly = true, propagation= Propagation.NOT_SUPPORTED)
+    //@Transactional(isolation = Isolation.SERIALIZABLE, propagation = Propagation.SUPPORTS,  readOnly = true, timeout = 1, rollbackFor = {RuntimeException.class})
+    //@Transactional(propagation = Propagation.MANDATORY)
+    //@Transactional(propagation= Propagation.REQUIRED)
+    //@Transactional
+    //@Transactional(isolation = Isolation.SERIALIZABLE, propagation = Propagation.REQUIRES_NEW,  readOnly = false, rollbackFor = {RuntimeException.class})
+    //@Transactional(isolation = Isolation.SERIALIZABLE, propagation = Propagation.REQUIRES_NEW,  readOnly = true, noRollbackFor = {RuntimeException.class})
+    //@Transactional(readOnly = true, isolation = Isolation.SERIALIZABLE, propagation = Propagation.REQUIRES_NEW, rollbackFor = {SQLException.class})
+    @Transactional(readOnly = true, isolation = Isolation.SERIALIZABLE, propagation = Propagation.REQUIRES_NEW, rollbackFor = {Exception.class})
+    public void create(DistanceDto distanceDto) {
+        log.info("Creating object: {}", distanceDto);
+        propertyValidator.validateDuplicatedPropertyValue(
+//                "city2", distanceDto.getSourceCity(), distanceDto.getTargetCity());
+                "targetCity", distanceDto.getSourceCity(), distanceDto.getTargetCity());
+
+        Distance newDistance =
+                Distance.builder()
+                        .sourceCity(City.builder().name(distanceDto.getSourceCity()).build())
+                        .targetCity(City.builder().name(distanceDto.getTargetCity()).build())
+                        .distance(distanceDto.getDistance())
+                        .build();
+//    try{
+//        this.distanceRepository.insert(newDistance);
+//    }catch (Exception e){
+//        System.out.println(e);
+//            }
+        this.distanceRepository.insert(newDistance);
+    }
+}

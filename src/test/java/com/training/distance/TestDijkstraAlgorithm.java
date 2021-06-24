@@ -1,22 +1,19 @@
 package com.training.distance;
 
-import com.training.distance.model.Edge;
-import com.training.distance.model.Graph;
-import com.training.distance.model.Vertex;
 //import static org.junit.Assert.assertNotNull;
 //import static org.junit.Assert.assertTrue;
 
 public class TestDijkstraAlgorithm {
 //
-//    private List<Vertex> nodes;
-//    private List<Edge> edges;
+//    private List<City> nodes;
+//    private List<Distance> edges;
 //
 //    @Test
 //    public void testExcute() {
-//        nodes = new ArrayList<Vertex>();
-//        edges = new ArrayList<Edge>();
+//        nodes = new ArrayList<City>();
+//        edges = new ArrayList<Distance>();
 //        for (int i = 0; i < 11; i++) {
-//            Vertex location = new Vertex("Node_" + i, "Node_" + i);
+//            City location = new City("Node_" + i, "Node_" + i);
 //            nodes.add(location);
 //        }
 //
@@ -37,12 +34,12 @@ public class TestDijkstraAlgorithm {
 //        Graph graph = new Graph(nodes, edges);
 //        DijkstraAlgorithm dijkstra = new DijkstraAlgorithm(graph);
 //        dijkstra.execute(nodes.get(0));
-//        LinkedList<Vertex> path = dijkstra.getPath(nodes.get(10));
+//        LinkedList<City> path = dijkstra.getPath(nodes.get(10));
 //
 //        assertNotNull(path);
 //        assertTrue(path.size() > 0);
 //
-//        for (Vertex vertex : path) {
+//        for (City vertex : path) {
 //            System.out.println(vertex);
 //        }
 //
@@ -50,7 +47,7 @@ public class TestDijkstraAlgorithm {
 //
 //    private void addLane(String laneId, int sourceLocNo, int destLocNo,
 //                         int duration) {
-//        Edge lane = new Edge(laneId,nodes.get(sourceLocNo), nodes.get(destLocNo), duration );
+//        Distance lane = new Distance(laneId,nodes.get(sourceLocNo), nodes.get(destLocNo), duration );
 //        edges.add(lane);
 //    }
 }
