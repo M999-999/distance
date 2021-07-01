@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
 
@@ -48,6 +49,7 @@ public class Distance {
     private City targetCity;
 
     @Column
+    @Range(min = 0, message = "Please select positive numbers Only")
     private int distance;
 
     public Distance(City sourceCity, City targetCity, int distance) {
@@ -55,6 +57,6 @@ public class Distance {
                 targetCityId(targetCity.getId()).build();
         this.sourceCity = sourceCity;
         this.targetCity = targetCity;
-        this.distance = distance;///sk
+        this.distance = distance;
     }
 }

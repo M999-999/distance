@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+/**
+ * @author klebcha
+ */
 @RestController
 @RequestMapping(value = "/cities", produces = "application/json")
 public class CityController {
@@ -25,6 +28,15 @@ public class CityController {
         this.routeService = routeService;
     }
 
+    /**
+     *
+     * @param distanceDto
+     * @return
+     * @since
+     * @see
+     *
+     *
+     */
     @PostMapping("/distance2")
     public ResponseEntity<DistanceDto> create(@RequestBody @Valid DistanceDto distanceDto) {
         distanceService.create(distanceDto);

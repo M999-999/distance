@@ -18,9 +18,5 @@ public class DistanceCompositeKey implements Serializable {
 
     @Column(name = "source_city_id") private Long sourceCityId;
     @Column(name = "target_city_id") private Long targetCityId;
-//    @Column
-//    private Long sourceCityId;
-//    @Column
-//    private Long targetCityId;
 
 }

@@ -16,11 +16,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-//@EnableTransactionManagement
 public class RouteServiceImpl implements RouteService {
-    //@Autowired
+
     private PropertyValidator propertyValidator;
-    //@Autowired
     private DistanceRepository distanceRepository;
 
     @Autowired
