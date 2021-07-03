@@ -6,15 +6,15 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class PropertyValidator {
-//    public void validateDuplicatedPropertyValue(String propertyTitle, String value1, String value2) throws DistanceAppException {
 public void validateDuplicatedPropertyValue(String propertyTitle, String value1, String value2){
-        if (value1.equalsIgnoreCase(value2)) {
-//            try {
-                throw new AppException(
-                        AppExceptionCodes.DUPLICATED_PROPERTY_VALUE, propertyTitle, value2);
-//            } catch (AppException e) {
-//                e.printStackTrace();
-//            }
-        }
+    if (value1 == null || value1.isEmpty()
+            || value2 == null || value2.isBlank()) {
+        throw new AppException(
+                AppExceptionCodes.EMPTY_PROPERTY_VALUE, propertyTitle, value2);
+    } else  if (value1.equalsIgnoreCase(value2)) {
+            throw new AppException(
+                    AppExceptionCodes.DUPLICATED_PROPERTY_VALUE, propertyTitle, value2);
     }
+
+}
 }

@@ -16,10 +16,10 @@ import javax.validation.constraints.Positive;
 @AllArgsConstructor
 public class DistanceDto {
 
-    @Pattern(regexp = "\\p{Alnum}+", message = "{city1_only_letters_and_numbers}")
+    @Pattern(regexp = "\\p{Alnum}+", message = "{sourceCity_only_letters_and_numbers}")
     private String sourceCity;
 
-    @Pattern(regexp = "\\p{Alnum}+", message = "{city2_only_letters_and_numbers}")
+    @Pattern(regexp = "\\p{Alnum}+", message = "{targetCity_only_letters_and_numbers}")
     private String targetCity;
 
     @NotNull(message = "{distance_not_null}")

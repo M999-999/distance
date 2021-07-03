@@ -18,7 +18,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/cities", produces = "application/json")
 public class CityController {
-    //@Autowired
+
     private DistanceService distanceService;
     private RouteService routeService;
 
@@ -37,13 +37,13 @@ public class CityController {
      *
      *
      */
-    @PostMapping("/distance2")
+    @PostMapping("/distance")
     public ResponseEntity<DistanceDto> create(@RequestBody @Valid DistanceDto distanceDto) {
         distanceService.create(distanceDto);
         return new ResponseEntity<>(distanceDto, HttpStatus.CREATED);
     }
 
-    @GetMapping("/route2/{source}/{target}")
+    @GetMapping("/route/{source}/{target}")
     public ResponseEntity<List<RouteDto>> getRoute(
             @PathVariable String source, @PathVariable String target) {
         return new ResponseEntity<>(routeService.getRoutes(source, target), HttpStatus.OK);

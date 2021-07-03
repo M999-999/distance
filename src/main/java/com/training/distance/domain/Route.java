@@ -7,5 +7,5 @@ import java.util.List;
 @Data
 public class Route {
     private List<Distance> distances;
-    private Double fullDistance;
+    private Integer fullDistance;
 }

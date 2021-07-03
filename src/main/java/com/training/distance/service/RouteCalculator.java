@@ -70,7 +70,6 @@ public class RouteCalculator {
 
     private void addRouteToResult(List<DistanceDto> distances) {
         RouteDto dto = RouteDto.builder().distanceDtos(distances).build();
-        //dto.setFullDistance(distances.stream().mapToDouble(DistanceDto::getDistance).sum());
         dto.setFullDistance(distances.stream().mapToInt(DistanceDto::getDistance).sum());
         result.add(dto);
     }
