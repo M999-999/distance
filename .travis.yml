@@ -13,7 +13,7 @@ language: java
 before_install:
   - chmod +x mvnw
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash) -t 50a53a31-bafb-4b81-adc3-c2febf30011d
 
 notifications:
   email:
