@@ -1,5 +1,7 @@
-# Distance (find cites connection distances)
+# Distance (Service to calculate cities connection distances)
 [API documentation (Swagger)](http://localhost:8080/swagger-ui/)
+
+Image is available on hub.docker.com [Distance cities image](https://hub.docker.com/r/m999d999/distance-cities)
 
 Ci Travis status [![Build Status](https://travis-ci.com/M999-999/distance.svg?branch=master)](https://travis-ci.com/M999-999/distance)
 
