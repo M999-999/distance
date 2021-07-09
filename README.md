@@ -1,4 +1,5 @@
-# Distance
+# Distance (find cites connection distances)
+[API documentation (Swagger)](http://localhost:8080/swagger-ui/)
 
 Ci Travis status [![Build Status](https://travis-ci.com/M999-999/distance.svg?branch=master)](https://travis-ci.com/M999-999/distance)
 
